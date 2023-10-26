@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 /**
  * Class for describing error responses
  *
- * statusCode - number
+ * statusCode - http satus code
  * message - message of the error
  */
 

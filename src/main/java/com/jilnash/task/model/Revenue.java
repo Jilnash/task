@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Entity class for table 'revenue'
+ * Entity class for DB table 'revenue'
  */
 
 @Data

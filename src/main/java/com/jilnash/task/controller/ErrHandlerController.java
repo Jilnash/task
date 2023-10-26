@@ -18,9 +18,11 @@ import java.io.IOException;
 public class ErrHandlerController {
 
     /**
+     * Handles IOException caused in MainController
+     * Triggered when parameter value is not valid
      *
      * @param ex
-     * @return
+     * @return ErrorResponse object which contains error code and message
      */
 
     @ExceptionHandler (value = IOException.class)
@@ -29,6 +31,14 @@ public class ErrHandlerController {
     {
         return new ErrorResponse(HttpStatus.NOT_ACCEPTABLE.value(), ex.getMessage());
     }
+
+    /**
+     * Handles MethodArgumentTypeMismatchException caused in MainController.
+     * Triggered when request parameter type is not matching with method argument type
+     *
+     * @param ex
+     * @return ErrorResponse object which contains error code and message
+     */
 
     @ExceptionHandler (value = MethodArgumentTypeMismatchException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)

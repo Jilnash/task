@@ -9,9 +9,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Controller for handling revenue requests.
- *
- *
+ * Controller for handling /cafe requests.
  */
 
 @RestController
