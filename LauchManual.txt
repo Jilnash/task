@@ -1,0 +1,48 @@
+
+### SET UP ###
+
+install docker from docker.io
+install java 17
+install maven
+
+### Run commands in CMD ###
+
+~ docker network create app
+~ docker container run --name mysqldb --network app -e MYSQL_ROOT_PASSWORD=root24 -e MYSQL_DATABASE=task --publish 6603:3306 -d mysql:8
+~ docker container exec -it mysqldb bash
+
+~ mysql -u root -p
+
+!! input password !!
+
+~ root24
+
+!! just copy & paste sql queries !!
+
+drop schema if exists `task`;
+
+create schema `task`;
+
+use `task`;
+
+create table `revenue`(
+    `id` bigint unsigned auto_increment,
+    `cafe` varchar(255) not null,
+    `revenue` decimal(20, 5) not null,
+    primary key (`id`)
+);
+
+~ \q
+
+~ exit
+
+### Move to project root directory ###
+
+~ mvn spring-boot:run
+
+Project is running at localhost:8080
+
+now send requests from browser
+
+for POST: http://localhost:8080/cafe?cafeName={string}&customerNum={integer}&avgSpend={double}
+for GET: http://localhost:8080/cafe
